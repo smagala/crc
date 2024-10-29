@@ -24,6 +24,7 @@ FROM base-env
 
 # install all the python libs from the build env
 COPY --from=build-env /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=build-env /usr/local/bin/clockwork /usr/local/bin/clockwork
 
 # do not buffer stdout/stderr
 ENV PYTHONUNBUFFERED=1

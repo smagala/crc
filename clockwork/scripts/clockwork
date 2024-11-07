@@ -53,6 +53,15 @@ subparser_remove_contam.add_argument("reads_out_1", help="Name of output reads f
 subparser_remove_contam.add_argument("reads_out_2", help="Name of output reads file 2")
 subparser_remove_contam.set_defaults(func=clockwork.contam_remover.run)
 
+# ----------------------------- version -------------------------------
+subparser_version = subparsers.add_parser(
+    "version",
+    help="Get version and exit",
+    usage="clockwork version",
+    description="Print version and exit",
+)
+subparser_version.set_defaults(func=lambda _: print(clockwork.__version__))
+
 args = parser.parse_args()
 
 logging.basicConfig(
